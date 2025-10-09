@@ -16,7 +16,6 @@ const projects = [
   {
     id: 2,
     title: "Design Mobile Dibimbing",
-    client: "",
     category: "UI/UX",
     desc: "Perancangan konsep aplikasi kursus online di Dibimbing.id.",
     image: "/projects/dibimbing.png",
@@ -25,7 +24,6 @@ const projects = [
   {
     id: 3,
     title: "Website Donasi Panti Jompo Kencana",
-    client: "",
     category: "UI/UX",
     desc: "Desain website donasi untuk panti jompo Kencana.",
     image: "/projects/panti.png",
@@ -33,10 +31,10 @@ const projects = [
   },
   {
     id: 4,
-    title: "Desain Logo,Stiker & Feeds Produk Cemalcemilcomel",
+    title: "Desain Logo, Stiker & Feeds Produk Cemalcemilcomel",
     client: "Cemalcemilcomel",
     category: "Desain Grafis",
-    desc: "Pembuatan desain logo, stiker dan feeds produk untuk brand cemalcemilcomel.",
+    desc: "Pembuatan desain logo, stiker dan feeds produk untuk brand Cemalcemilcomel.",
     images: ["/projects/cemalcemil.png", "/projects/cemalcemilall.png"],
     link: "#",
   },
@@ -53,6 +51,19 @@ const projects = [
 
 export default function Projects() {
   const [preview, setPreview] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handleNext = () => {
+    if (!preview?.images) return;
+    setCurrentSlide((prev) => (prev + 1) % preview.images.length);
+  };
+
+  const handlePrev = () => {
+    if (!preview?.images) return;
+    setCurrentSlide((prev) =>
+      prev === 0 ? preview.images.length - 1 : prev - 1
+    );
+  };
 
   return (
     <section
@@ -66,7 +77,7 @@ export default function Projects() {
         </h2>
       </div>
 
-      {/* Cards */}
+      {/* Kartu Projek */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
         {projects.map((p, i) => (
           <motion.div
@@ -79,24 +90,28 @@ export default function Projects() {
                        overflow-hidden group hover:-translate-y-2 transition 
                        hover:shadow-lg hover:shadow-pink-500/20"
           >
-            {/* Gambar Thumbnail */}
+            {/* Thumbnail */}
             <div
               className="relative w-full h-52 cursor-pointer overflow-hidden"
-              onClick={() => setPreview(p)}
+              onClick={() => {
+                setPreview(p);
+                setCurrentSlide(0);
+              }}
             >
               <img
                 src={p.images ? p.images[0] : p.image}
                 alt={p.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
+
               <span className="absolute top-3 left-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
                 {p.category}
               </span>
 
-              {/* Label jumlah foto */}
+              {/* Label jumlah slides */}
               {p.images && p.images.length > 1 && (
                 <span className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-xs text-white font-medium px-2 py-1 rounded-lg">
-                  {p.images.length} Foto
+                  {p.images.length} Slides
                 </span>
               )}
             </div>
@@ -104,7 +119,9 @@ export default function Projects() {
             {/* Konten */}
             <div className="p-6">
               <h3 className="text-xl font-bold">{p.title}</h3>
-              <p className="text-sm text-pink-300 font-medium">{p.client}</p>
+              {p.client && (
+                <p className="text-sm text-pink-300 font-medium">{p.client}</p>
+              )}
               <p className="text-sm text-gray-400 mt-2 line-clamp-2">{p.desc}</p>
 
               {p.link !== "#" && (
@@ -128,7 +145,7 @@ export default function Projects() {
       <AnimatePresence>
         {preview && (
           <motion.div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-6"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[100] p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -137,28 +154,45 @@ export default function Projects() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-5xl w-full flex gap-4"
+              className="relative max-w-5xl w-full flex flex-col items-center z-[105]"
             >
-              {/* Foto dalam modal */}
-              {(preview.images ? preview.images : [preview.image]).map(
-                (img, idx) => (
-                  <img
-                    key={idx}
-                    src={img}
-                    alt={`${preview.title} ${idx + 1}`}
-                    className="w-1/2 rounded-2xl border border-white/20 shadow-xl shadow-pink-400/20 object-contain"
-                  />
-                )
-              )}
-
-              {/* Tombol X */}
+              {/* Tombol X di pojok kanan atas gambar */}
               <button
                 onClick={() => setPreview(null)}
-                className="absolute top-3 right-3 bg-gradient-to-r from-pink-500 to-blue-500 
-                           text-white px-3 py-1 rounded-full text-sm hover:scale-105 transition shadow-md"
+                className="absolute -top-4 -right-4 z-[110] bg-gradient-to-r from-pink-500 to-blue-500 
+                           text-white w-8 h-8 rounded-full text-sm font-bold hover:scale-110 transition shadow-md flex items-center justify-center"
               >
                 ✕
               </button>
+
+              {/* Slider untuk banyak gambar */}
+              {preview.images && preview.images.length > 1 ? (
+                <div className="relative w-full flex items-center justify-center">
+                  <img
+                    src={preview.images[currentSlide]}
+                    alt={`${preview.title} slide ${currentSlide + 1}`}
+                    className="max-h-[80vh] w-auto rounded-2xl border border-white/20 shadow-xl shadow-pink-400/20 object-contain"
+                  />
+                  <button
+                    onClick={handlePrev}
+                    className="absolute left-3 bg-white/20 hover:bg-white/40 text-white text-2xl px-3 py-1 rounded-full z-[110]"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="absolute right-3 bg-white/20 hover:bg-white/40 text-white text-2xl px-3 py-1 rounded-full z-[110]"
+                  >
+                    ›
+                  </button>
+                </div>
+              ) : (
+                <img
+                  src={preview.image}
+                  alt={preview.title}
+                  className="max-h-[85vh] w-auto rounded-2xl border border-white/20 shadow-xl shadow-pink-400/20 object-contain mx-auto"
+                />
+              )}
             </motion.div>
           </motion.div>
         )}
