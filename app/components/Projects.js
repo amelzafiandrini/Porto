@@ -142,61 +142,81 @@ export default function Projects() {
       </div>
 
       {/* Modal Preview */}
-      <AnimatePresence>
-        {preview && (
-          <motion.div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[100] p-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-5xl w-full flex flex-col items-center z-[105]"
-            >
-              {/* Tombol X di pojok kanan atas gambar */}
-              <button
-                onClick={() => setPreview(null)}
-                className="absolute -top-4 -right-4 z-[110] bg-gradient-to-r from-pink-500 to-blue-500 
-                           text-white w-8 h-8 rounded-full text-sm font-bold hover:scale-110 transition shadow-md flex items-center justify-center"
-              >
-                ✕
-              </button>
+     {/* Modal Preview */}
+<AnimatePresence>
+  {preview && (
+    <motion.div
+      key="overlay"
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setPreview(null)}
+    >
+      <motion.div
+        className="relative max-w-5xl w-[92%] p-4 flex items-center justify-center"
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Tombol Close */}
+        <button
+          onClick={() => setPreview(null)}
+          className="absolute top-6 right-16 bg-white/10 hover:bg-white/20 
+                     text-gray-300 rounded-full p-3 transition"
+        >
+          ✕
+        </button>
 
-              {/* Slider untuk banyak gambar */}
-              {preview.images && preview.images.length > 1 ? (
-                <div className="relative w-full flex items-center justify-center">
-                  <img
-                    src={preview.images[currentSlide]}
-                    alt={`${preview.title} slide ${currentSlide + 1}`}
-                    className="max-h-[80vh] w-auto rounded-2xl border border-white/20 shadow-xl shadow-pink-400/20 object-contain"
-                  />
-                  <button
-                    onClick={handlePrev}
-                    className="absolute left-3 bg-white/20 hover:bg-white/40 text-white text-2xl px-3 py-1 rounded-full z-[110]"
-                  >
-                    ‹
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="absolute right-3 bg-white/20 hover:bg-white/40 text-white text-2xl px-3 py-1 rounded-full z-[110]"
-                  >
-                    ›
-                  </button>
-                </div>
-              ) : (
-                <img
-                  src={preview.image}
-                  alt={preview.title}
-                  className="max-h-[85vh] w-auto rounded-2xl border border-white/20 shadow-xl shadow-pink-400/20 object-contain mx-auto"
-                />
-              )}
-            </motion.div>
-          </motion.div>
+        {/* Indicator */}
+        {preview.images && preview.images.length > 1 && (
+          <div className="absolute top-6 left-12 bg-black/60 text-white 
+                          px-4 py-1.5 rounded-full text-sm">
+            {currentSlide + 1} / {preview.images.length}
+          </div>
         )}
-      </AnimatePresence>
+
+        {/* Tombol Prev */}
+        {preview.images && preview.images.length > 1 && (
+          <button
+            onClick={handlePrev}
+            className="absolute left-18 top-1/2 -translate-y-1/2 
+                       bg-white/15 hover:bg-white/25 text-white rounded-full 
+                       p-3 transition"
+          >
+            ‹
+          </button>
+        )}
+
+        {/* Gambar */}
+        <motion.img
+          key={preview.images ? preview.images[currentSlide] : preview.image}
+          src={preview.images ? preview.images[currentSlide] : preview.image}
+          alt={preview.title}
+          className="max-h-[80vh] object-contain rounded-lg"
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -60 }}
+          transition={{ duration: 0.28 }}
+        />
+
+        {/* Tombol Next */}
+        {preview.images && preview.images.length > 1 && (
+          <button
+            onClick={handleNext}
+            className="absolute right-18 top-1/2 -translate-y-1/2 
+                       bg-white/15 hover:bg-white/25 text-white rounded-full 
+                       p-3 transition"
+          >
+            ›
+          </button>
+        )}
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </section>
   );
 }
