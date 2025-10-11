@@ -21,7 +21,7 @@ const workExperiences = [
       "Desain UI/UX responsif untuk pengelolaan data peserta.",
       "Implementasi fitur utama registrasi & manajemen dokumen digital.",
     ],
-    image: "/experience/kemhan.jpg",
+    image: "/experience/pusdatin.jpg",
   },
   {
     company: "Kementerian Luar Negeri",
