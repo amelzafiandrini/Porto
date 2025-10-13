@@ -36,7 +36,7 @@ const projects = [
     category: "Desain Grafis",
     desc: "Pembuatan desain logo, stiker dan feeds produk untuk brand Cemalcemilcomel.",
     images: ["/projects/cemalcemil.png", "/projects/cemalcemilall.png"],
-    link: "#",
+    link: "https://instagram.com/cemalcemilcomel_",
   },
   {
     id: 5,
@@ -67,7 +67,8 @@ export default function Projects() {
 
   return (
     <section
-      className="relative text-white py-20 px-6"
+      id="projects"
+      className="relative text-white py-22 px-6"
       style={{ backgroundColor: "#020314ff" }}
     >
       <ParticlesBackground />
@@ -141,20 +142,18 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Modal Preview */}
-     {/* Modal Preview */}
+     {/* ======== MODAL GAMBAR ======== */}
 <AnimatePresence>
   {preview && (
     <motion.div
-      key="overlay"
-      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={() => setPreview(null)}
     >
       <motion.div
-        className="relative max-w-5xl w-[92%] p-4 flex items-center justify-center"
+        className="relative max-w-4xl w-full max-h-[85vh] flex justify-center items-center px-4"
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
@@ -163,27 +162,18 @@ export default function Projects() {
         {/* Tombol Close */}
         <button
           onClick={() => setPreview(null)}
-          className="absolute top-6 right-16 bg-white/10 hover:bg-white/20 
-                     text-gray-300 rounded-full p-3 transition"
+          className="absolute -top-10 right-10 text-gray-300 hover:text-white transition-colors"
+          aria-label="Close"
         >
-          ✕
+          <span className="text-3xl font-light">×</span>
         </button>
-
-        {/* Indicator */}
-        {preview.images && preview.images.length > 1 && (
-          <div className="absolute top-6 left-12 bg-black/60 text-white 
-                          px-4 py-1.5 rounded-full text-sm">
-            {currentSlide + 1} / {preview.images.length}
-          </div>
-        )}
 
         {/* Tombol Prev */}
         {preview.images && preview.images.length > 1 && (
           <button
             onClick={handlePrev}
-            className="absolute left-18 top-1/2 -translate-y-1/2 
-                       bg-white/15 hover:bg-white/25 text-white rounded-full 
-                       p-3 transition"
+            className="absolute left-2 md:left-5 text-white/80 hover:text-white text-4xl font-light"
+            aria-label="Previous"
           >
             ‹
           </button>
@@ -194,20 +184,19 @@ export default function Projects() {
           key={preview.images ? preview.images[currentSlide] : preview.image}
           src={preview.images ? preview.images[currentSlide] : preview.image}
           alt={preview.title}
-          className="max-h-[80vh] object-contain rounded-lg"
-          initial={{ opacity: 0, x: 60 }}
+          className="rounded-lg max-h-[80vh] object-contain border border-zinc-700"
+          initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -60 }}
-          transition={{ duration: 0.28 }}
+          exit={{ opacity: 0, x: -40 }}
+          transition={{ duration: 0.25 }}
         />
 
         {/* Tombol Next */}
         {preview.images && preview.images.length > 1 && (
           <button
             onClick={handleNext}
-            className="absolute right-18 top-1/2 -translate-y-1/2 
-                       bg-white/15 hover:bg-white/25 text-white rounded-full 
-                       p-3 transition"
+            className="absolute right-2 md:right-5 text-white/80 hover:text-white text-4xl font-light"
+            aria-label="Next"
           >
             ›
           </button>
@@ -216,7 +205,6 @@ export default function Projects() {
     </motion.div>
   )}
 </AnimatePresence>
-
     </section>
   );
 }

@@ -69,7 +69,7 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="relative bg-darkblue text-white py-24 px-6 overflow-hidden"
+      className="relative bg-darkblue text-white py-16 px-6 overflow-hidden"
     >
       {/* Background Particles */}
       <Particles

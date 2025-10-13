@@ -11,51 +11,42 @@ const certificates = [
 ];
 
 export default function Certificates() {
-  const [selected, setSelected] = useState(null);
-  const [direction, setDirection] = useState(0);
+  const [preview, setPreview] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Tutup modal dengan ESC
   useEffect(() => {
-    if (!selected) return;
-    const onKey = (e) => {
-      if (e.key === "Escape") closeModal();
-      else if (e.key === "ArrowLeft") prevSlide();
-      else if (e.key === "ArrowRight") nextSlide();
+    const handleKey = (e) => {
+      if (e.key === "Escape") setPreview(null);
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [selected]);
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [preview, currentSlide]);
 
-  const openModal = (certIndex, imgIndex = 0) => {
-    setDirection(0);
-    setSelected({ certIndex, imgIndex });
+  const openPreview = (cert) => {
+    setPreview(cert);
+    setCurrentSlide(0);
   };
 
-  const closeModal = () => setSelected(null);
-
-  const prevSlide = () => {
-    if (!selected) return;
-    const cert = certificates[selected.certIndex];
-    const len = cert.images.length;
-    setDirection(-1);
-    setSelected((prev) => ({
-      ...prev,
-      imgIndex: (prev.imgIndex - 1 + len) % len,
-    }));
+  const handlePrev = () => {
+    if (!preview?.images) return;
+    setCurrentSlide(
+      (prev) => (prev - 1 + preview.images.length) % preview.images.length
+    );
   };
 
-  const nextSlide = () => {
-    if (!selected) return;
-    const cert = certificates[selected.certIndex];
-    const len = cert.images.length;
-    setDirection(1);
-    setSelected((prev) => ({
-      ...prev,
-      imgIndex: (prev.imgIndex + 1) % len,
-    }));
+  const handleNext = () => {
+    if (!preview?.images) return;
+    setCurrentSlide((prev) => (prev + 1) % preview.images.length);
   };
 
   return (
-    <section className="relative min-h-screen w-full py-16 px-6 text-white">
+    <section 
+    id="certificate"
+    className="relative min-h-screen w-full py-22 px-6 text-white">
+      {/* ======== TITLE ======== */}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -65,17 +56,17 @@ export default function Certificates() {
         Certificates
       </motion.h2>
 
-      {/* Gallery */}
+      {/* ======== GALLERY ======== */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {certificates.map((cert, i) => (
+        {certificates.map((cert) => (
           <div
-            key={i}
+            key={cert.id}
             className="relative cursor-pointer group"
-            onClick={() => openModal(i, 0)}
+            onClick={() => openPreview(cert)}
           >
             <img
               src={cert.images[0]}
-              alt={`Certificate ${i + 1}`}
+              alt="Certificate"
               className="w-full h-52 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
             />
             {cert.images.length > 1 && (
@@ -87,70 +78,61 @@ export default function Certificates() {
         ))}
       </div>
 
-      {/* Modal */}
+      {/* ======== MODAL GAMBAR ======== */}
       <AnimatePresence>
-        {selected && (
+        {preview && (
           <motion.div
-            key="overlay"
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={closeModal}
+            onClick={() => setPreview(null)}
           >
             <motion.div
-              className="relative max-w-5xl w-[92%] flex items-center justify-center"
+              className="relative max-w-4xl w-full max-h-[85vh] flex justify-center items-center px-4"
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Slide Number */}
-              <div className="absolute top-6 left-1 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
-                {selected.imgIndex + 1} /{" "}
-                {certificates[selected.certIndex].images.length}
-              </div>
-
-              {/* Close Button */}
+              {/* Tombol Close */}
               <button
-                onClick={closeModal}
-                className="absolute top-6 right-1 bg-white/10 hover:bg-white/20 
-                     text-gray-300 rounded-full p-3 transition"
+                onClick={() => setPreview(null)}
+                className="absolute -top-10 right-0 text-gray-300 hover:text-white transition-colors"
+                aria-label="Close"
               >
-                ✕
+                <span className="text-3xl font-light">×</span>
               </button>
 
-              {/* Prev */}
-              {certificates[selected.certIndex].images.length > 1 && (
+              {/* Tombol Prev */}
+              {preview.images && preview.images.length > 1 && (
                 <button
-                  onClick={prevSlide}
-                  className="absolute left-1 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-3 transition"
+                  onClick={handlePrev}
+                  className="absolute left-0 md:left-0 text-white/80 hover:text-white text-4xl font-light"
+                  aria-label="Previous"
                 >
                   ‹
                 </button>
               )}
 
-              {/* Image */}
+              {/* Gambar */}
               <motion.img
-                key={
-                  certificates[selected.certIndex].images[selected.imgIndex]
-                }
-                src={
-                  certificates[selected.certIndex].images[selected.imgIndex]
-                }
+                key={preview.images[currentSlide]}
+                src={preview.images[currentSlide]}
                 alt="Certificate"
-                className="max-h-[80vh] object-contain rounded-xl shadow-lg"
-                initial={{ opacity: 0, x: direction * 60 }}
+                className="rounded-lg max-h-[80vh] object-contain border border-zinc-700"
+                initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -direction * 60 }}
-                transition={{ duration: 0.28 }}
+                exit={{ opacity: 0, x: -40 }}
+                transition={{ duration: 0.25 }}
               />
 
-              {/* Next */}
-              {certificates[selected.certIndex].images.length > 1 && (
+              {/* Tombol Next */}
+              {preview.images && preview.images.length > 1 && (
                 <button
-                  onClick={nextSlide}
-                  className="absolute right-1 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-3 transition"
+                  onClick={handleNext}
+                  className="absolute right-0 md:right-0 text-white/80 hover:text-white text-4xl font-light"
+                  aria-label="Next"
                 >
                   ›
                 </button>
@@ -162,3 +144,4 @@ export default function Certificates() {
     </section>
   );
 }
+  

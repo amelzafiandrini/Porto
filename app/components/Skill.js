@@ -109,7 +109,9 @@ const techLogos = [
 
 export default function Skills() {
   return (
-    <section className="relative w-full py-16 px-6 backdrop-blur-sm text-white">
+    <section 
+    id="skill"
+    className="relative w-full py-24 px-6 backdrop-blur-sm text-white">
       {/* Title */}
       <h2 className="text-3xl font-bold text-center mb-14 bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text text-transparent">
         My Tools & Skills

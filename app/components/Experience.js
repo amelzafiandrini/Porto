@@ -9,7 +9,6 @@ import {
 } from "framer-motion";
 import { useRef, useState } from "react";
 
-// ================== DATA PENGALAMAN KERJA ==================
 const workExperiences = [
   {
     company: "Kementerian Pertahanan",
@@ -45,10 +44,10 @@ const workExperiences = [
       "Desain banner & konten promosi untuk kebutuhan branding.",
       "Pengelolaan identitas visual & materi pemasaran digital.",
     ],
+    image: "/experience/ccc.png",
   },
 ];
 
-// ================== DATA PENGALAMAN ORGANISASI ==================
 const orgExperiences = [
   {
     company: "Himpunan Mahasiswa Sistem Informasi",
@@ -64,7 +63,6 @@ const orgExperiences = [
   },
 ];
 
-// ================== COMPONENT ITEM ==================
 function TimelineItem({ exp, index, total, progress, onImageClick }) {
   const start = index / total;
   const end = (index + 0.999) / total;
@@ -85,16 +83,14 @@ function TimelineItem({ exp, index, total, progress, onImageClick }) {
 
   const container = {
     hidden: { opacity: 1 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.15 } },
   };
-
   const item = {
     hidden: { opacity: 0, x: -25 },
     show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
+
+  const isCCC = exp.image && exp.image.includes("ccc.png");
 
   return (
     <motion.div
@@ -124,8 +120,25 @@ function TimelineItem({ exp, index, total, progress, onImageClick }) {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        className="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-pink-500/50 transition-colors flex justify-between items-start gap-4"
+        className="p-6 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-pink-500/50 transition-colors flex flex-col md:flex-row justify-between items-start gap-6 shadow-lg"
       >
+        {/* FOTO */}
+        {exp.image && (
+          <motion.div
+            className="md:w-80 w-full h-56 md:h-52 overflow-hidden flex-shrink-0 cursor-pointer border border-pink-400/50 hover:scale-[1.02] transition-transform duration-300 rounded-[10px]"
+            variants={item}
+            onClick={() => onImageClick(exp.image)}
+          >
+            <img
+              src={exp.image}
+              alt={exp.company}
+              className={`w-full h-full rounded-[10px] ${
+                isCCC ? "object-contain bg-[#0a0a0a]" : "object-cover"
+              }`}
+            />
+          </motion.div>
+        )}
+
         {/* TEKS */}
         <div className="flex-1">
           <motion.h3
@@ -154,27 +167,11 @@ function TimelineItem({ exp, index, total, progress, onImageClick }) {
             ))}
           </motion.ul>
         </div>
-
-        {/* FOTO KECIL (bisa diklik) */}
-        {exp.image && (
-          <motion.div
-            className="w-28 h-28 rounded-lg overflow-hidden border border-pink-400/50 flex-shrink-0 cursor-pointer hover:scale-105 transition-transform"
-            variants={item}
-            onClick={() => onImageClick(exp.image)}
-          >
-            <img
-              src={exp.image}
-              alt={exp.company}
-              className="object-cover w-full h-full"
-            />
-          </motion.div>
-        )}
       </motion.div>
     </motion.div>
   );
 }
 
-// ================== BAGIAN UTAMA ==================
 export default function Experience() {
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -194,17 +191,17 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative text-white py-16"
+      className="relative text-white py-10"
       style={{ backgroundColor: "#020314" }}
     >
       <div className="max-w-5xl mx-auto px-6 overflow-visible">
         {/* ======== PENGALAMAN KERJA ======== */}
         <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl font-bold text-center mb-14 bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text text-transparent"
-      >
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold text-center mb-14 bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text text-transparent"
+        >
           Work Experience
         </motion.h2>
 
@@ -232,11 +229,11 @@ export default function Experience() {
 
         {/* ======== PENGALAMAN ORGANISASI ======== */}
         <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl font-bold text-center mb-14 bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text text-transparent"
-      >
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold text-center mb-14 bg-gradient-to-r from-pink-400 to-fuchsia-500 bg-clip-text text-transparent"
+        >
           Organizational Experience
         </motion.h2>
 
@@ -263,26 +260,38 @@ export default function Experience() {
         </div>
       </div>
 
-      {/* ======== MODAL GAMBAR ======== */}
+      {/* ======== MODAL GAMBAR (versi elegan) ======== */}
       {selectedImage && (
         <motion.div
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-3xl max-h-[85vh]">
+          <motion.div
+            className="relative max-w-3xl w-full max-h-[85vh] flex justify-center items-center px-4"
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.95, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Tombol Close */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute -top-8 right-0 text-white text-3xl font-bold hover:text-pink-400"
+              className="absolute -top-10 right-0 text-gray-300 hover:text-white transition-colors"
+              aria-label="Close"
             >
-              ×
+              <span className="text-3xl font-light">×</span>
             </button>
+
+            {/* Gambar */}
             <img
               src={selectedImage}
               alt="Bukti dokumentasi"
-              className="rounded-lg max-h-[80vh] object-contain"
+              className="rounded-lg max-h-[80vh] object-contain border border-zinc-700"
             />
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </section>

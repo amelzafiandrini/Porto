@@ -24,7 +24,9 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
+    <section 
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
       {/* Background Particles */}
       <Particles
         id="tsparticles"
@@ -132,15 +134,6 @@ export default function Hero() {
             animate={float(0.2)}
           >
             <SiInstagram size={34} color="#E4405F" />
-          </motion.a>
-
-          <motion.a
-            href="https://behance.net/username"
-            target="_blank"
-            rel="noopener noreferrer"
-            animate={float(0.4)}
-          >
-            <SiBehance size={34} color="#1769FF" />
           </motion.a>
 
           <motion.a
