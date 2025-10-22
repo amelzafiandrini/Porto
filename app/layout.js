@@ -12,10 +12,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Portfolio Amelza Fiandrini",
-  description: "Portfolio Amelza Fiandrini",
+  title: "Portfolio Amelza F",
+  description: "Portfolio Amelza F",
   icons: {
-    icon: "/logoaf.png",
+    icon: "/logoaf.svg",
   },
 };
 
