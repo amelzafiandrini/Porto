@@ -14,7 +14,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Portfolio Amelza Fiandrini",
   description: "Portfolio Amelza Fiandrini",
-  icon: "/logoaf.png",
+  icons: {
+    icon: "/logoaf.png",
+  },
 };
 
 export default function RootLayout({ children }) {
