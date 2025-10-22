@@ -37,7 +37,7 @@ const workExperiences = [
   },
   {
     company: "Cemalcemilcomel",
-    period: "2022 - 2024",
+    period: "2023 - 2024",
     role: "Usaha Pribadi",
     type: "Owner & Designer",
     tasks: [
