@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const certificates = [
-  { id: 1, images: ["sertif_odoo.png"] },
-  { id: 2, images: ["sertif_bootcamp_uiux1.png", "sertif_bootcamp_uiux2.png"] },
-  { id: 3, images: ["sertif_design_canva.png"] },
-  { id: 4, images: ["sertif_uiux_design.png"] },
-  { id: 5, images: ["sertif_bnsp.png"] },
+  { id: 1, images: ["sertif_skripsi.jpg"]},
+  { id: 2, images: ["sertif_odoo.png"] },
+  { id: 3, images: ["sertif_bootcamp_uiux1.png", "sertif_bootcamp_uiux2.png"] },
+  { id: 4, images: ["sertif_design_canva.png"] },
+  { id: 5, images: ["sertif_uiux_design.png"] },
+  { id: 6, images: ["sertif_bnsp.png"] },
 ];
 
 export default function Certificates() {
