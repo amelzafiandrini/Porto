@@ -24,7 +24,7 @@ const workExperiences = [
   },
   {
     company: "Kementerian Luar Negeri",
-    period: "Sep 2024 - Des 2024",
+    period: "Sep 2024 - Nov 2024",
     role: "Biro SDM Bagian Informasi, Perencanaan, dan Pengembangan",
     type: "Magang",
     tasks: [
@@ -37,7 +37,7 @@ const workExperiences = [
   },
   {
     company: "Cemalcemilcomel",
-    period: "2023 - 2024",
+    period: "2023 - Saat ini",
     role: "Usaha Pribadi",
     type: "Owner & Designer",
     tasks: [
