@@ -99,6 +99,10 @@ export default function Hero() {
               1500,
               "Creative Thinker",
               1500,
+              "Digital Product Explorer",
+              1500,
+              "Creative Operations Assistant",
+              1500,
             ]}
             wrapper="span"
             speed={50}
