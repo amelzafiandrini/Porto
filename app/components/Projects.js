@@ -52,7 +52,7 @@ const projects = [
     title: "Desain Logo, Label dan Gift Card Niyumi Crave",
     client: "Niyumicrave",
     category: "Desain Grafis",
-    desc: "Mendesain logo, stiker, dan gift card Niyumi Crave.",
+    desc: "Mendesain logo, sticker, dan gift card Niyumi Crave.",
     images: ["/projects/niyumicrave.png", "/projects/gcniyumi.png"],
     link: "#",
   },
