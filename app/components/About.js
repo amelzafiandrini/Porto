@@ -142,10 +142,10 @@ export default function AboutMe() {
             </h2>
             <p className="text-gray-400 mt-4 leading-relaxed text-center md:text-left">
               Saya lulusan Program Studi Sistem Informasi Universitas Bina Sarana Informatika tahun 2025. 
-              Berpengalaman dalam desain UI/UX aplikasi berbasis website dan mobile, mampu 
+              Berpengalaman dalam mengembangkan konsep dan desain untuk produk digital, mampu 
               memvisualisasikan kebutuhan pengguna, serta terbiasa bekerja mandiri maupun dalam tim. 
               Memiliki pengalaman magang di instansi pemerintahan dan ingin terus mengembangkan 
-              keterampilan di bidang desain UI/UX.  
+              keterampilan di bidang desain.  
             </p>
           </div>
 
