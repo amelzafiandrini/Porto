@@ -34,7 +34,7 @@ const projects = [
     title: "Desain Logo, Stiker & Feeds Cemalcemilcomel",
     client: "Cemalcemilcomel",
     category: "Desain Grafis",
-    desc: "Mendesain logo, stiker, dan feed Cemalcemilcomel.",
+    desc: "Mendesain logo, sticker, dan feed Cemalcemilcomel.",
     images: ["/projects/cemalcemil.png", "/projects/cemalcemilall.png"],
     link: "#",
   },
