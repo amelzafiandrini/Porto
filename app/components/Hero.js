@@ -95,6 +95,8 @@ export default function Hero() {
         >
           <TypeAnimation
             sequence={[
+              "Creative Designer",
+              1500,
               "UI/UX Enthusiast",
               1500,
               "Creative Thinker",
