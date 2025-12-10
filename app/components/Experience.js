@@ -55,9 +55,9 @@ const orgExperiences = [
     role: "Anggota Divisi Pendidikan",
     type: "Organisasi",
     tasks: [
-      "Menyusun dan melaksanakan program kerja divisi pendidikan.",
-      "Membantu pelaksanaan seminar & pelatihan akademik bagi mahasiswa.",
-      "Berkoordinasi dengan pengurus lain untuk kegiatan kampus.",
+      "Menjadi pemateri pada kelas pengenalan teknologi dan coding bagi mahasiswa serta siswa sekolah alam.",
+      "Mengumpulkan data, menyusun laporan, dan mendokumentasikan seluruh rangkaian kegiatan pendidikan.",
+      "Mengorganisir kegiatan akademik seperti kompetisi pemrograman untuk meningkatkan antusias belajar peserta.",
     ],
     image: "/experience/himsi.jpg",
   },
