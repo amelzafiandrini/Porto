@@ -105,6 +105,32 @@ const techLogos = [
     title: "Odoo",
     href: "https://www.odoo.com"
   },
+
+  //HTML
+  {
+  node: (
+    <img 
+      src="https://img.icons8.com/color/48/html-5--v1.png"
+      alt="HTML5"
+      className="h-12 w-auto object-contain"
+    />
+  ),
+  title: "HTML",
+  href: "https://developer.mozilla.org/en-US/docs/Web/HTML"
+},
+
+//CSS
+{
+  node: (
+    <img 
+      src="https://img.icons8.com/color/48/css3.png"
+      alt="CSS3"
+      className="h-12 w-auto object-contain"
+    />
+  ),
+  title: "CSS",
+  href: "https://developer.mozilla.org/en-US/docs/Web/CSS"
+},
 ];
 
 export default function Skills() {
