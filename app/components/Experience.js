@@ -37,7 +37,7 @@ const workExperiences = [
   },
   {
     company: "Cemalcemilcomel",
-    period: "2023 - Saat ini",
+    period: "Juli 2023 - Desember 2024",
     role: "Usaha Pribadi",
     type: "Owner & Designer",
     tasks: [
