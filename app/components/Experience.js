@@ -11,6 +11,17 @@ import { useRef, useState } from "react";
 
 const workExperiences = [
   {
+    company: "Niyumicrave",
+    period: "Januari 2026 - Saat ini",
+    role: "Usaha Pribadi",
+    type: "Owner & Designer",
+    tasks: [
+      "Desain banner & konten promosi untuk kebutuhan branding.",
+      "Pengelolaan identitas visual & materi pemasaran digital.",
+    ],
+    image: "/experience/logoniyumi.png",
+  },
+  {
     company: "Kementerian Pertahanan",
     period: "2025",
     role: "Pusat Data dan Informasi",
@@ -34,17 +45,6 @@ const workExperiences = [
       "Menjadi panitia CPNS Tahun Anggaran 2024.",
     ],
     image: "/experience/kemlu.jpg",
-  },
-  {
-    company: "Cemalcemilcomel",
-    period: "Juli 2023 - September 2024",
-    role: "Usaha Pribadi",
-    type: "Owner & Designer",
-    tasks: [
-      "Desain banner & konten promosi untuk kebutuhan branding.",
-      "Pengelolaan identitas visual & materi pemasaran digital.",
-    ],
-    image: "/experience/ccc.png",
   },
 ];
 
