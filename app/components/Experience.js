@@ -19,7 +19,7 @@ const workExperiences = [
       "Desain banner & konten promosi untuk kebutuhan branding.",
       "Pengelolaan identitas visual & materi pemasaran digital.",
     ],
-    image: "/experience/logoniyumi.png",
+    image: "/experience/logoniyumi.jpg",
   },
   {
     company: "Kementerian Pertahanan",
