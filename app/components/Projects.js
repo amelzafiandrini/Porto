@@ -44,7 +44,7 @@ const projects = [
     client: "Kuliner Wenny",
     category: "Desain Grafis",
     desc: "Merancang logo dan desain stiker kemasan untuk usaha Kuliner Wenny.",
-    image: "/projects/masakanpadang.png",
+    image: "/projects/stickeribu.png",
     link: "#",
   },
   {
@@ -53,7 +53,16 @@ const projects = [
     client: "Niyumicrave",
     category: "Desain Grafis",
     desc: "Merancang logo, desain sticker, dan gift card Niyumi Crave.",
-    images: ["/projects/niyumicrave.png", "/projects/gcniyumi.png"],
+    images: ["/projects/niyumicrave.png", "/projects/gcniyumi.png", "/projects/feedsinstagramsatu.png", "/projects/feedsinstagramdua.png"],
+    link: "#",
+  },
+  {
+    id: 7,
+    title: "Desain Id Card HUT RI",
+    client: "",
+    category: "Desain Grafis",
+    desc: "Merancang desain Id Card.",
+    images: ["/projects/hut78.png", "/projects/hut79.png", "/projects/hut80.png"],
     link: "#",
   },
 ];
@@ -150,70 +159,84 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
-
-     {/* ======== MODAL GAMBAR ======== */}
+{/* ======== MODAL GAMBAR ======== */}
 <AnimatePresence>
   {preview && (
     <motion.div
-      className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-[2px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={() => setPreview(null)}
     >
       <motion.div
-        className="relative max-w-4xl w-full max-h-[85vh] flex justify-center items-center px-4"
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
+        transition={{ duration: 0.25 }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Tombol Close */}
-        <button
-          onClick={() => setPreview(null)}
-          className="absolute -top-10 right-10 text-gray-300 hover:text-white transition-colors"
-          aria-label="Close"
-        >
-          <span className="text-3xl font-light">×</span>
-        </button>
+        <div className="flex items-center justify-center gap-4">
+          {/* Previous */}
+          {preview.images && preview.images.length > 1 && (
+            <button
+              onClick={handlePrev}
+              className="text-4xl text-white/70 hover:text-pink-400 transition"
+              aria-label="Previous"
+            >
+              ❮
+            </button>
+          )}
 
-        {/* Tombol Prev */}
-        {preview.images && preview.images.length > 1 && (
-          <button
-            onClick={handlePrev}
-            className="absolute left-2 md:left-5 text-white/80 hover:text-white text-4xl font-light"
-            aria-label="Previous"
-          >
-            ‹
-          </button>
-        )}
+          {/* Image Wrapper */}
+          <div className="relative">
+            {/* Close */}
+            <button
+              onClick={() => setPreview(null)}
+              className="absolute -top-10 -right-4 text-2xl text-gray-300 hover:text-pink-400 transition"
+              aria-label="Close"
+            >
+              ✕
+            </button>
 
-        {/* Gambar */}
-        <motion.img
-          key={preview.images ? preview.images[currentSlide] : preview.image}
-          src={preview.images ? preview.images[currentSlide] : preview.image}
-          alt={preview.title}
-          className="rounded-lg max-h-[80vh] object-contain border border-zinc-700"
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -40 }}
-          transition={{ duration: 0.25 }}
-        />
+            {/* Image */}
+            <motion.img
+              key={preview.images ? preview.images[currentSlide] : preview.image}
+              src={preview.images ? preview.images[currentSlide] : preview.image}
+              alt={preview.title}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.25 }}
+              className="max-w-[80vw] max-h-[70vh] rounded-xl border border-white/10 shadow-2xl object-contain bg-zinc-900"
+            />
+          </div>
 
-        {/* Tombol Next */}
-        {preview.images && preview.images.length > 1 && (
-          <button
-            onClick={handleNext}
-            className="absolute right-2 md:right-5 text-white/80 hover:text-white text-4xl font-light"
-            aria-label="Next"
-          >
-            ›
-          </button>
-        )}
+          {/* Next */}
+          {preview.images && preview.images.length > 1 && (
+            <button
+              onClick={handleNext}
+              className="text-4xl text-white/70 hover:text-pink-400 transition"
+              aria-label="Next"
+            >
+              ❯
+            </button>
+          )}
+        </div>
+
+{/* Counter */}
+<div className="mt-4 flex justify-center">
+  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">
+    {preview.images
+      ? `${currentSlide + 1} / ${preview.images.length}`
+      : "1 / 1"}
+  </span>
+</div>
       </motion.div>
     </motion.div>
   )}
 </AnimatePresence>
-    </section>
-  );
+
+</section>
+);
 }

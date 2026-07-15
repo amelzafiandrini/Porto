@@ -154,7 +154,7 @@ export default function Skills() {
           pauseOnHover
           scaleOnHover
           fadeOut
-          fadeOutColor="#eb667eff"
+          fadeOutColor="rgb(31, 18, 20)"
           ariaLabel="Technology partners"
         />
       </div>

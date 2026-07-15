@@ -39,7 +39,7 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-lg mb-3">Connect</h3>
           <div className="flex justify-center md:justify-start gap-4">
-            <motion.a whileHover={{ scale: 1.2 }} href="https://linkedin.com/amelza-fiandrini-0b06402a4/" target="_blank">
+            <motion.a whileHover={{ scale: 1.2 }} href="https://www.linkedin.com/in/amelza-fiandrini-0b06402a4/" target="_blank">
               <Linkedin className="w-6 h-6 text-blue-400" />
             </motion.a>
             <motion.a whileHover={{ scale: 1.2 }} href="https://github.com/amelzafiandrini" target="_blank">

@@ -16,10 +16,11 @@ const workExperiences = [
     role: "Usaha Pribadi",
     type: "Owner & Designer",
     tasks: [
-      "Desain banner & konten promosi untuk kebutuhan branding.",
-      "Pengelolaan identitas visual & materi pemasaran digital.",
+      "Mendesain banner dan konten promosi untuk mendukung kebutuhan branding.",
+      "Membuat materi visual untuk media sosial dan kebutuhan pemasaran digital.",
+      "Mengelola desain visual agar sesuai dengan identitas merek."
     ],
-    image: "/experience/logoniyumi.jpg",
+    images: ["/projects/logoniyumi.png"],
   },
   {
     company: "Kementerian Pertahanan",
@@ -27,11 +28,11 @@ const workExperiences = [
     role: "Pusat Data dan Informasi",
     type: "Skripsi",
     tasks: [
-      "Perancangan & pengembangan website magang (CodeIgniter 4).",
-      "Desain UI/UX responsif untuk pengelolaan data peserta.",
-      "Implementasi fitur utama registrasi & manajemen dokumen digital.",
+      "Merancang desain antarmuka website magang dengan memperhatikan kebutuhan pengguna.",
+      "Membuat tampilan UI/UX yang responsif untuk memudahkan pengelolaan data peserta.",
+      "Melakukan pengembangan fitur website seperti registrasi dan manajemen dokumen digital.",
     ],
-    image: "/experience/pusdatin.jpg",
+    images: ["/experience/pusdatin.jpg"],
   },
   {
     company: "Kementerian Luar Negeri",
@@ -39,12 +40,12 @@ const workExperiences = [
     role: "Biro SDM Bagian Informasi, Perencanaan, dan Pengembangan",
     type: "Magang",
     tasks: [
-      "Analisis SIM SDM untuk peningkatan manajemen kepegawaian.",
-      "Pengelolaan data pegawai & dukungan operasional CPNS.",
-      "Review & testing aplikasi internal (UI & responsivitas web).",
-      "Menjadi panitia CPNS Tahun Anggaran 2024.",
+      "Melakukan analisis Sistem Informasi Manajemen SDM untuk pengelolaan data kepegawaian.",
+      "Melakukan review dan testing aplikasi internal terkait tampilan UI dan responsivitas website.",
+      "Mengelola data pegawai dan administrasi kegiatan CPNS Tahun Anggaran 2024.",
+      "Melaksanakan tugas kepanitiaan dalam kegiatan CPNS Tahun Anggaran 2024.",
     ],
-    image: "/experience/kemlu.jpg",
+    images: ["/experience/skdmagang.jpg", "/experience/skdfull.jpg"],
   },
 ];
 
@@ -59,7 +60,7 @@ const orgExperiences = [
       "Mengumpulkan data, menyusun laporan, dan mendokumentasikan kegiatan pendidikan.",
       "Mengorganisir kompetisi akademik seperti lomba pemrograman.",
     ],
-    image: "/experience/himsi.jpg",
+    images: ["/experience/himsi.jpg"],
   },
 ];
 
@@ -123,21 +124,19 @@ function TimelineItem({ exp, index, total, progress, onImageClick }) {
         className="p-6 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-pink-500/50 transition-colors flex flex-col md:flex-row justify-between items-start gap-6 shadow-lg"
       >
         {/* FOTO */}
-        {exp.image && (
-          <motion.div
-            className="md:w-80 w-full h-56 md:h-52 overflow-hidden flex-shrink-0 cursor-pointer border border-pink-400/50 hover:scale-[1.02] transition-transform duration-300 rounded-[10px]"
-            variants={item}
-            onClick={() => onImageClick(exp.image)}
-          >
-            <img
-              src={exp.image}
-              alt={exp.company}
-              className={`w-full h-full rounded-[10px] ${
-                isCCC ? "object-contain bg-[#0a0a0a]" : "object-cover"
-              }`}
-            />
-          </motion.div>
-        )}
+     {exp.images && (
+  <motion.div
+    className="md:w-80 w-full h-56 md:h-52 overflow-hidden flex-shrink-0 cursor-pointer border border-pink-400/50 hover:scale-[1.02] transition-transform duration-300 rounded-[10px]"
+    variants={item}
+    onClick={() => onImageClick(exp.images, 0)}
+  >
+    <img
+      src={exp.images[0]}
+      alt={exp.company}
+      className="w-full h-full object-cover rounded-[10px]"
+    />
+  </motion.div>
+)}
 
         {/* TEKS */}
         <div className="flex-1">
@@ -185,16 +184,23 @@ export default function Experience() {
     mass: 0.2,
   });
 
-  const [selectedImage, setSelectedImage] = useState(null);
+const [selectedImages, setSelectedImages] = useState(null);
+const [currentIndex, setCurrentIndex] = useState(0);
 
-  return (
-    <section
-      id="experience"
-      ref={sectionRef}
-      className="relative text-white py-10"
-      style={{ backgroundColor: "#020314" }}
-    >
-      <div className="max-w-5xl mx-auto px-6 overflow-visible">
+const handleImageClick = (images, index = 0) => {
+  setSelectedImages(images);
+  setCurrentIndex(index);
+};
+
+
+ return (
+  <section
+    id="experience"
+    ref={sectionRef}
+    className="relative text-white py-10"
+    style={{ backgroundColor: "#020314" }}
+  >
+      <div className="max-w-6xl mx-auto px-5 overflow-visible">
         {/* ======== PENGALAMAN KERJA ======== */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -221,7 +227,7 @@ export default function Experience() {
                 index={i}
                 total={workExperiences.length}
                 progress={lineProgress}
-                onImageClick={setSelectedImage}
+                onImageClick={handleImageClick}
               />
             ))}
           </div>
@@ -253,47 +259,89 @@ export default function Experience() {
                 index={i}
                 total={orgExperiences.length}
                 progress={lineProgress}
-                onImageClick={setSelectedImage}
+                onImageClick={handleImageClick}
               />
             ))}
           </div>
         </div>
       </div>
 
-      {/* ======== MODAL GAMBAR (versi elegan) ======== */}
-      {selectedImage && (
-        <motion.div
-          className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 backdrop-blur-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setSelectedImage(null)}
-        >
-          <motion.div
-            className="relative max-w-3xl w-full max-h-[85vh] flex justify-center items-center px-4"
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.95, opacity: 0 }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Tombol Close */}
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute -top-10 right-0 text-gray-300 hover:text-white transition-colors"
-              aria-label="Close"
-            >
-              <span className="text-3xl font-light">×</span>
-            </button>
+  {/* ======== IMAGE MODAL ======== */}
+{selectedImages && (
+  <motion.div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    onClick={() => setSelectedImages(null)}
+  >
+    <motion.div
+      initial={{ scale: 0.95, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.95, opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={(e) => e.stopPropagation()}
+      className="relative w-full max-w-4xl px-14"
+    >
+    
 
-            {/* Gambar */}
-            <img
-              src={selectedImage}
-              alt="Bukti dokumentasi"
-              className="rounded-lg max-h-[80vh] object-contain border border-zinc-700"
-            />
-          </motion.div>
-        </motion.div>
-      )}
-    </section>
-  );
+     <div className="flex items-center justify-center gap-4">
+  {/* Previous */}
+  <button
+    onClick={() =>
+      setCurrentIndex((prev) =>
+        prev === 0 ? selectedImages.length - 1 : prev - 1
+      )
+    }
+    className="text-4xl text-white/70 hover:text-pink-400 transition"
+  >
+    ❮
+  </button>
+
+  {/* Image + Close */}
+  <div className="relative">
+    {/* Close */}
+    <button
+      onClick={() => setSelectedImages(null)}
+      className="absolute -top-9 -right-16 text-2xl text-gray-300 hover:text-pink-400 transition"
+      aria-label="Close"
+    >
+      ✕
+    </button>
+
+    {/* Image */}
+    <motion.img
+      key={currentIndex}
+      src={selectedImages[currentIndex]}
+      alt="Portfolio"
+      initial={{ opacity: 0, scale: 0.98 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.25 }}
+      className="max-w-[80vw] max-h-[70vh] rounded-xl border border-white/10 shadow-2xl object-contain bg-zinc-900"
+    />
+  </div>
+
+  {/* Next */}
+  <button
+    onClick={() =>
+      setCurrentIndex((prev) =>
+        prev === selectedImages.length - 1 ? 0 : prev + 1
+      )
+    }
+    className="text-4xl text-white/70 hover:text-pink-400 transition"
+  >
+    ❯
+  </button>
+</div>
+      {/* Counter */}
+      <div className="mt-5 flex justify-center">
+        <span className="text-sm text-gray-400">
+          {currentIndex + 1} / {selectedImages.length}
+        </span>
+      </div>
+    </motion.div>
+  </motion.div>
+)}
+</section>
+);
 }
