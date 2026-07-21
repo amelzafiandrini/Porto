@@ -53,7 +53,7 @@ const projects = [
     client: "Niyumicrave",
     category: "Desain Grafis",
     desc: "Merancang logo, desain sticker, dan gift card Niyumi Crave.",
-    images: ["/projects/niyumicrave.png", "/projects/gcniyumi.png", "/projects/feedsinstagramsatu.png", "/projects/feedsinstagramdua.png"],
+    images: ["/projects/niyumicrave.png", "/projects/gcniyumi.png", "/projects/feedsig1.png", "/projects/feedsig2.png"],
     link: "https://www.instagram.com/niyumicrave/",
   },
   {
