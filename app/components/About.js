@@ -114,14 +114,14 @@ export default function AboutMe() {
           viewport={{ once: true }}
           className="flex justify-center md:justify-end"
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl p-[2px] bg-gradient-to-tr from-pink-500 via-purple-500 to-blue-500 animate-border">
+          <div className="w-64 aspect-[3/4] rounded-3xl p-[2px] bg-gradient-to-tr from-pink-500 via-purple-500 to-blue-500 animate-border">
             <div className="w-full h-full rounded-3xl overflow-hidden bg-black/80 backdrop-blur-sm">
               <Image
-                src="/fotonewmelza.jpg"
+                src="/melcantik.jpg"
                 alt="Foto Profil"
                 fill
                 priority
-                className="object-cover"
+                className="w-full h-full object-cover rounded-xl"
               />
             </div>
           </div>

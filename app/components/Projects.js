@@ -35,7 +35,7 @@ const projects = [
     client: "Cemalcemilcomel",
     category: "Desain Grafis",
     desc: "Merancang logo, desain sticker, dan feed Cemalcemilcomel.",
-    images: ["/projects/cemalcemil.png", "/projects/cemalcemilall.png"],
+    images: ["/projects/cccnew.png", "/projects/cemalcemilall.png"],
     link: "#",
   },
   {
@@ -49,12 +49,12 @@ const projects = [
   },
   {
     id: 6,
-    title: "Desain Logo, Label dan Gift Card Niyumi Crave",
+    title: "Desain Logo, Gift Card dan Feeds Instagram Niyumi Crave",
     client: "Niyumicrave",
     category: "Desain Grafis",
     desc: "Merancang logo, desain sticker, dan gift card Niyumi Crave.",
     images: ["/projects/niyumicrave.png", "/projects/gcniyumi.png", "/projects/feedsinstagramsatu.png", "/projects/feedsinstagramdua.png"],
-    link: "#",
+    link: "https://www.instagram.com/niyumicrave/",
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ const projects = [
     client: "",
     category: "Desain Grafis",
     desc: "Merancang desain Id Card.",
-    images: ["/projects/hut78.png", "/projects/hut79.png", "/projects/hut80.png"],
+    images: ["/projects/hutri78.png", "/projects/hutri79.png", "/projects/hutri80.png"],
     link: "#",
   },
 ];

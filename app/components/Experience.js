@@ -45,8 +45,8 @@ const workExperiences = [
       "Mengelola data pegawai dan administrasi kegiatan CPNS Tahun Anggaran 2024.",
       "Melaksanakan tugas kepanitiaan dalam kegiatan CPNS Tahun Anggaran 2024.",
     ],
-    images: ["/experience/skdmagang.jpg", "/experience/skdfull.jpg"],
-  },
+    images: ["/experience/kemlu1.jpg", "/experience/kemlu2.jpg", "/experience/kemlu4.jpg"],
+  }
 ];
 
 const orgExperiences = [
@@ -60,7 +60,7 @@ const orgExperiences = [
       "Mengumpulkan data, menyusun laporan, dan mendokumentasikan kegiatan pendidikan.",
       "Mengorganisir kompetisi akademik seperti lomba pemrograman.",
     ],
-    images: ["/experience/himsi.jpg"],
+    images: ["/experience/himsi1.jpg", "/experience/himsi.jpg", "/experience/himsi2.jpg"],
   },
 ];
 
