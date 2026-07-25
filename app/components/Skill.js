@@ -80,6 +80,19 @@ const techLogos = [
     href: "https://www.microsoft.com/microsoft-365/powerpoint" 
   },
 
+  // Google Workspace
+{
+  node: (
+    <img
+      src="https://img.icons8.com/color/48/google-logo.png"
+      alt="Google Workspace"
+      className="h-12 w-auto object-contain"
+    />
+  ),
+  title: "Google Workspace",
+  href: "https://workspace.google.com"
+},
+
   // Visual Studio Code
   { 
     node: (

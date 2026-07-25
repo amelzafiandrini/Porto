@@ -141,7 +141,7 @@ export default function AboutMe() {
               About Me
             </h2>
             <p className="text-gray-400 mt-4 leading-relaxed text-center md:text-left">
-              Lulusan Program Studi Sistem Informasi Universitas Bina Sarana Informatika tahun 2025 dengan ketertarikan pada UI/UX dan desain grafis. Berpengalaman mengerjakan berbagai proyek desain antarmuka dan media visual menggunakan Figma, Canva, serta Adobe Photoshop. Memiliki kemampuan bekerja secara mandiri maupun kolaboratif, serta terus berupaya mengembangkan keterampilan untuk menciptakan desain yang fungsional dan menarik.
+              Lulusan Program Studi Sistem Informasi Universitas Bina Sarana Informatika tahun 2025 dengan pengalaman magang di Biro Sumber Daya Manusia Kementerian Luar Negeri RI. Memiliki kemampuan dalam administrasi, pengelolaan dan penyajian data, penyusunan laporan, serta pengoperasian Microsoft Office. Didukung keterampilan menggunakan Figma, Canva, dan Adobe Photoshop untuk membuat desain antarmuka dan media visual. Memiliki ketelitian, kemampuan analisis, dan komunikasi yang baik, serta siap berkontribusi dalam mendukung proses administrasi, pengelolaan data, dan operasional organisasi secara efektif.
             </p>
           </div>
 

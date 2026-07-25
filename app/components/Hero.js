@@ -97,13 +97,11 @@ export default function Hero() {
             sequence={[
               "Creative Designer",
               1500,
-              "UI/UX Enthusiast",
+              "UI/UX Designer",
               1500,
               "Creative Thinker",
               1500,
-              "Digital Product Explorer",
-              1500,
-              "Creative Operations Assistant",
+              "Product Designer",
               1500,
             ]}
             wrapper="span"
@@ -119,7 +117,7 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 1 }}
           className="text-gray-400 text-sm md:text-base mb-8"
         >
-          Suka mengubah ide menjadi desain yang mudah digunakan dan menyenangkan bagi pengguna.
+          Merancang antarmuka yang menarik, mudah digunakan, dan memberikan pengalaman terbaik bagi setiap pengguna.
         </motion.p>
 
         {/* Sosmed Icons Floating */}

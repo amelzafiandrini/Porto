@@ -16,8 +16,7 @@ const workExperiences = [
     role: "Usaha Pribadi",
     type: "Owner & Designer",
     tasks: [
-      "Mendesain banner dan konten promosi untuk mendukung kebutuhan branding.",
-      "Membuat materi visual untuk media sosial dan kebutuhan pemasaran digital.",
+      "Merancang dan membuat materi visual untuk media sosial serta kebutuhan promosi.",
       "Mengelola desain visual agar sesuai dengan identitas merek."
     ],
     images: ["/projects/logoniyumi.png"],
@@ -28,9 +27,9 @@ const workExperiences = [
     role: "Pusat Data dan Informasi",
     type: "Skripsi",
     tasks: [
-      "Merancang desain antarmuka website magang dengan memperhatikan kebutuhan pengguna.",
-      "Membuat tampilan UI/UX yang responsif untuk memudahkan pengelolaan data peserta.",
-      "Melakukan pengembangan fitur website seperti registrasi dan manajemen dokumen digital.",
+    "Menganalisis kebutuhan pengguna dan sistem, serta merancang antarmuka (UI/UX).",
+    "Mengembangkan sistem informasi magang berbasis web menggunakan CodeIgniter 4 dan MySQL.",
+    "Melakukan pengujian, perbaikan fitur, dan evaluasi sistem."
     ],
     images: ["/experience/pusdatin.jpg"],
   },
@@ -40,12 +39,11 @@ const workExperiences = [
     role: "Biro SDM Bagian Informasi, Perencanaan, dan Pengembangan",
     type: "Magang",
     tasks: [
-      "Melakukan analisis Sistem Informasi Manajemen SDM untuk pengelolaan data kepegawaian.",
-      "Melakukan review dan testing aplikasi internal terkait tampilan UI dan responsivitas website.",
-      "Mengelola data pegawai dan administrasi kegiatan CPNS Tahun Anggaran 2024.",
-      "Melaksanakan tugas kepanitiaan dalam kegiatan CPNS Tahun Anggaran 2024.",
+      "Mengelola data pada Sistem Informasi Manajemen SDM (SIM SDM), termasuk input, pembaruan, dan validasi data.",
+      "Berpatisipasi dalam pengujian fitur aplikasi internal untuk memastikan sistem berfungsi dengan baik.",
+      "Mendukung pelaksanaan seleksi CPNS 2024 melalui pengelolaan data dan dokumen administrasi peserta.",
     ],
-    images: ["/experience/kemlu1.jpg", "/experience/kemlu2.jpg", "/experience/kemlu4.jpg"],
+    images: ["/experience/kemlu1.jpg", "/experience/kemlu2.jpg", "/experience/kemlu5.jpg", "/experience/kemlu6.jpg", "/experience/kemlu7.png", "/experience/kemlu4.jpg"],
   }
 ];
 
@@ -56,9 +54,9 @@ const orgExperiences = [
     role: "Anggota Divisi Pendidikan",
     type: "Organisasi",
     tasks: [
-      "Menjadi pemateri pada kelas pengenalan teknologi dan coding.",
-      "Mengumpulkan data, menyusun laporan, dan mendokumentasikan kegiatan pendidikan.",
-      "Mengorganisir kompetisi akademik seperti lomba pemrograman.",
+    "Mengelola administrasi, data, dan dokumentasi kegiatan organisasi.",
+    "Menyusun materi serta memberikan pengenalan teknologi dan dasar coding.",
+    "Berkoordinasi dalam pelaksanaan kegiatan edukasi dan kompetisi akademik.",
     ],
     images: ["/experience/himsi1.jpg", "/experience/himsi.jpg", "/experience/himsi2.jpg"],
   },
