@@ -34,7 +34,7 @@ const projects = [
     title: "Desain Logo, Stiker & Feeds Cemalcemilcomel",
     client: "Cemalcemilcomel",
     category: "Desain Grafis",
-    desc: "Merancang logo, desain sticker, dan feed Cemalcemilcomel.",
+    desc: "Merancang logo, desain sticker, dan feeds Cemalcemilcomel.",
     images: ["/projects/cccnew.png", "/projects/cemalcemilall.png"],
     link: "#",
   },
@@ -66,7 +66,7 @@ const projects = [
     link: "#",
   },
 {
-    id: 7,
+    id: 8,
     title: "Desain ID Card Karyawan",
     client: "",
     category: "Desain Grafis",

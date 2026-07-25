@@ -7,10 +7,10 @@ const certificates = [
   { id: 2, images: ["sertif_odoo.png"] },
   { id: 3, images: ["sertif_toefl.jpg"] },
   { id: 4, images: ["sertif_bootcamp_uiux1.png", "sertif_bootcamp_uiux2.png"] },
-  { id: 4, images: ["sertif_kemlu.jpg"] },
-  { id: 5, images: ["sertif_design_canva.png"] },
-  { id: 6, images: ["sertif_uiux_design.png"] },
-  { id: 7, images: ["sertif_bnsp.png"] },
+  { id: 5, images: ["sertif_kemlu.jpg"] },
+  { id: 6, images: ["sertif_design_canva.png"] },
+  { id: 7, images: ["sertif_uiux_design.png"] },
+  { id: 8, images: ["sertif_bnsp.png"] },
 ];
 
 export default function Certificates() {
