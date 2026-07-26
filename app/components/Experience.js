@@ -40,8 +40,8 @@ const workExperiences = [
     type: "Magang",
     tasks: [
       "Mengelola data SIM SDM melalui proses input, pembaruan, dan validasi data.",
-      "Berpatisipasi dalam pengujian fitur aplikasi internal untuk memastikan sistem berfungsi dengan baik.",
-      "Mendukung pelaksanaan seleksi CPNS 2024 melalui pengelolaan data dan dokumen administrasi peserta.",
+      "Berpartisipasi dalam pengujian fitur aplikasi internal untuk memastikan sistem berjalan baik.",
+      "Membantu pelaksanaan seleksi CPNS 2024 melalui pengelolaan data dan dokumen administrasi peserta.",
     ],
     images: ["/experience/kemlu1.jpg", "/experience/kemlu2.jpg", "/experience/kemlu3.png", "/experience/kemlu5.jpg", "/experience/kemlu6.jpg", "/experience/kemlu4.jpg"],
   }
