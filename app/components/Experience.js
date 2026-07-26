@@ -39,7 +39,7 @@ const workExperiences = [
     role: "Biro SDM Bagian Informasi, Perencanaan, dan Pengembangan",
     type: "Magang",
     tasks: [
-      "Mengelola data pada Sistem Informasi Manajemen SDM (SIM SDM), termasuk input, pembaruan, dan validasi data.",
+      "Mengelola data SIM SDM melalui proses input, pembaruan, dan validasi data.",
       "Berpatisipasi dalam pengujian fitur aplikasi internal untuk memastikan sistem berfungsi dengan baik.",
       "Mendukung pelaksanaan seleksi CPNS 2024 melalui pengelolaan data dan dokumen administrasi peserta.",
     ],
