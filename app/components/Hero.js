@@ -95,13 +95,13 @@ export default function Hero() {
         >
           <TypeAnimation
             sequence={[
-              "Creative Designer",
-              1500,
               "UI/UX Designer",
               1500,
-              "Creative Thinker",
+              "Information Systems",
               1500,
-              "Product Designer",
+              "Data Management",
+              1500,
+              "Creative Problem Solver",
               1500,
             ]}
             wrapper="span"
@@ -117,7 +117,7 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 1 }}
           className="text-gray-400 text-sm md:text-base mb-8"
         >
-          Merancang antarmuka yang menarik, mudah digunakan, dan memberikan pengalaman terbaik bagi setiap pengguna.
+          Merancang desain antarmuka, mengelola data, dan mendukung pengembangan sistem informasi sesuai kebutuhan pengguna.
         </motion.p>
 
         {/* Sosmed Icons Floating */}
