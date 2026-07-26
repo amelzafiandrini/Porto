@@ -58,7 +58,7 @@ const orgExperiences = [
     "Menyusun materi serta memberikan pengenalan teknologi dan dasar coding.",
     "Berkoordinasi dalam pelaksanaan kegiatan edukasi dan kompetisi akademik.",
     ],
-    images: ["/experience/himsi1.jpg", "/experience/himsi.jpg", "/experience/himsi2.jpg"],
+    images: ["/experience/himsi4.jpg", "/experience/himsi.jpg", "/experience/himsi2.jpg", "/experience/himsi3.jpg"],
   },
 ];
 
