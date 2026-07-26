@@ -43,7 +43,7 @@ const workExperiences = [
       "Berpatisipasi dalam pengujian fitur aplikasi internal untuk memastikan sistem berfungsi dengan baik.",
       "Mendukung pelaksanaan seleksi CPNS 2024 melalui pengelolaan data dan dokumen administrasi peserta.",
     ],
-    images: ["/experience/kemlu1.jpg", "/experience/kemlu2.jpg", "/experience/kemlu7.png", "/experience/kemlu4.jpg"],
+    images: ["/experience/kemlu1.jpg", "/experience/kemlu2.jpg", "/experience/kemlu5.jpg", "/experience/kemlu6.jpg", "/experience/kemlu7.png", "/experience/kemlu4.jpg"],
   }
 ];
 
